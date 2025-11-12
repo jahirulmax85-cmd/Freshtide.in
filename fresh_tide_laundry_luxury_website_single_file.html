@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fresh Tide Laundry — Luxury Laundry & Dry Cleaning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Fresh Tide Laundry — Clean Clothes. Clear Conscience. Premium laundry & dry-cleaning with eco-friendly care." />
+  <style>
+    :root{
+      --blue:#0f4c81;
+      --light-blue:#eaf6ff;
+      --gold:#d4af37;
+      --muted:#6b7280;
+      --card-bg: rgba(255,255,255,0.85);
+      --glass: rgba(255,255,255,0.08);
+      --max-width:1200px;
+      color-scheme: light;
+      font-family: 'Lato', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#fbfdff 0%, #f2fbff 40%);color:#0b1220;}
+    .container{max-width:var(--max-width);margin:0 auto;padding:32px;}
+    header{position:sticky;top:0;background:rgba(255,255,255,0.6);backdrop-filter:blur(6px);z-index:40;border-bottom:1px solid rgba(15,76,129,0.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--blue),#1f6fb5);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-family:'Playfair Display';box-shadow:0 6px 20px rgba(15,76,129,0.12)}
+    .brand h1{margin:0;font-family:'Playfair Display';font-size:18px;color:var(--blue)}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    .cta{background:linear-gradient(90deg,var(--blue),#1f6fb5);color:white;padding:10px 16px;border-radius:10px;border:none;font-weight:700;cursor:pointer;box-shadow:0 8px 30px rgba(15,76,129,0.12)}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden;border-radius:18px;margin-top:22px;background-image:url('https://images.unsplash.com/photo-1581578734894-a3f8bd4f7f91?auto=format&fit=crop&w=1500&q=80');background-size:cover;background-position:center;height:520px;display:flex;align-items:center}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(9,26,42,0.32), rgba(255,255,255,0.02));}
+    .hero-inner{position:relative;z-index:2;padding:56px;max-width:720px}
+    .eyebrow{display:inline-block;padding:6px 12px;background:var(--gold);color:#081020;border-radius:999px;font-weight:700;margin-bottom:18px}
+    .hero h2{font-family:'Playfair Display';font-size:44px;margin:0 0 10px;color:white;line-height:1.04}
+    .hero p{color:rgba(255,255,255,0.9);margin:0 0 20px;font-size:18px}
+    .hero .actions{display:flex;gap:12px}
+
+    /* bubble overlay */
+    .bubbles{position:absolute;inset:0;pointer-events:none;opacity:0.8}
+    .bubble{position:absolute;border-radius:999px;background:rgba(255,255,255,0.14);box-shadow:inset -6px -6px 18px rgba(255,255,255,0.06);animation:float 12s infinite ease-in-out}
+    .bubble.small{width:28px;height:28px;left:10%;top:60%;animation-duration:10s}
+    .bubble.mid{width:72px;height:72px;left:68%;top:72%;animation-duration:14s}
+    .bubble.big{width:160px;height:160px;left:78%;top:12%;animation-duration:18s}
+    @keyframes float{0%{transform:translateY(0) translateX(0)}50%{transform:translateY(-28px) translateX(6px)}100%{transform:translateY(0) translateX(0)}}
+
+    /* Sections */
+    section{padding:64px 0}
+    .grid{display:grid;gap:20px}
+    .services{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+    .card{background:var(--card-bg);padding:18px;border-radius:14px;box-shadow:0 8px 30px rgba(11,18,32,0.06);border:1px solid rgba(11,18,32,0.03)}
+    .card h3{margin:0 0 8px;font-family:'Playfair Display';color:var(--blue)}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Pricing */
+    .pricing{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .price{padding:22px;border-radius:14px;text-align:center}
+    .price h4{margin:0 0 8px;font-family:'Playfair Display'}
+    .price .amount{font-size:28px;font-weight:700;color:var(--blue)}
+
+    /* Gallery */
+    .gallery{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));}
+    .gallery img{width:100%;height:140px;object-fit:cover;border-radius:12px}
+
+    /* Contact */
+    .contact-wrap{display:grid;grid-template-columns:1fr 360px;gap:28px}
+    form{display:flex;flex-direction:column;gap:10px;background:var(--card-bg);padding:18px;border-radius:12px}
+    input,textarea,select{padding:12px;border-radius:8px;border:1px solid rgba(11,18,32,0.06);font-size:14px}
+    .muted{color:var(--muted);font-size:13px}
+
+    footer{padding:28px 0;text-align:center;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:900px){.contact-wrap{grid-template-columns:1fr} .hero{height:420px} .hero-inner{padding:34px}}
+    @media (max-width:560px){nav ul{display:none} .logo{width:44px;height:44px} .hero h2{font-size:28px}}
+
+    /* small helpers */
+    .pill{display:inline-block;padding:8px 12px;border-radius:999px;background:var(--light-blue);font-weight:700;color:var(--blue)}
+    .feature-row{display:flex;gap:12px;align-items:center}
+    .icon{width:42px;height:42px;border-radius:10px;background:linear-gradient(180deg,#fff,rgba(255,255,255,0.9));display:flex;align-items:center;justify-content:center;border:1px solid rgba(11,18,32,0.04)}
+
+    /* modal */
+    .modal{position:fixed;inset:0;background:rgba(9,14,20,0.5);display:flex;align-items:center;justify-content:center;z-index:60;opacity:0;pointer-events:none;transition:all .18s}
+    .modal.open{opacity:1;pointer-events:auto}
+    .modal-card{background:white;border-radius:12px;padding:20px;width:420px;max-width:92%}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">FT</div>
+        <div>
+          <h1>Fresh Tide Laundry</h1>
+          <div style="font-size:12px;color:var(--muted)">Clean Clothes. Clear Conscience.</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a class="muted" href="tel:+911234567890" aria-label="Call">+91 12345 67890</a>
+        <button class="cta" id="bookNow">Schedule Pickup</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-label="Hero section">
+      <div class="bubbles" aria-hidden="true">
+        <div class="bubble small"></div>
+        <div class="bubble mid"></div>
+        <div class="bubble big"></div>
+      </div>
+      <div class="hero-inner">
+        <div class="eyebrow">Premium • Eco-friendly • Pickup</div>
+        <h2>Luxury laundry & dry-cleaning with care — delivered to your doorstep</h2>
+        <p>At Fresh Tide Laundry we combine premium cleaning techniques, eco-friendly detergents, and gentle handling to give your garments the attention they deserve.</p>
+        <div class="actions">
+          <button class="cta" id="heroBook">Schedule a Pickup</button>
+          <a href="#services" class="pill" style="text-decoration:none">Explore Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="grid">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <h2 style="margin:0;font-family:'Playfair Display'">Our Services</h2>
+            <p class="muted">From everyday laundry to delicate dry-cleaning and specialized care.</p>
+          </div>
+          <div style="align-self:center"><span class="pill">Trusted by professionals</span></div>
+        </div>
+
+        <div class="grid services">
+          <div class="card">
+            <div class="feature-row"><div class="icon">🧺</div><div>
+            <h3>Wash & Fold</h3>
+            <p>Quick turnaround and gentle wash cycles for everyday wear.</p></div></div>
+          </div>
+
+          <div class="card">
+            <div class="feature-row"><div class="icon">✨</div><div>
+            <h3>Premium Dry Clean</h3>
+            <p>Specialized solvent cleaning for suits, dresses, and delicate fabrics.</p></div></div>
+          </div>
+
+          <div class="card">
+            <div class="feature-row"><div class="icon">👟</div><div>
+            <h3>Shoe & Leather Care</h3>
+            <p>Cleaning, conditioning and protection for footwear and leather goods.</p></div></div>
+          </div>
+
+          <div class="card">
+            <div class="feature-row"><div class="icon">🧼</div><div>
+            <h3>Carpets & Rugs</h3>
+            <p>Deep steam cleaning to remove stains and restore textures.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="grid">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <h2 style="margin:0;font-family:'Playfair Display'">Pricing Plans</h2>
+            <p class="muted">Transparent pricing with options for every need.</p>
+          </div>
+          <div style="align-self:center"><button class="cta" id="customQuote">Get Custom Quote</button></div>
+        </div>
+
+        <div class="grid pricing">
+          <div class="card price">
+            <h4>Basic</h4>
+            <div class="amount">₹149 / kg</div>
+            <p class="muted">Everyday washing with standard turnaround.</p>
+            <div style="margin-top:12px"><button class="cta" onclick="openBooking('Basic')">Choose</button></div>
+          </div>
+
+          <div class="card price">
+            <h4>Premium</h4>
+            <div class="amount">₹199 / kg</div>
+            <p class="muted">Priority service & premium detergents.</p>
+            <div style="margin-top:12px"><button class="cta" onclick="openBooking('Premium')">Choose</button></div>
+          </div>
+
+          <div class="card price">
+            <h4>Luxury</h4>
+            <div class="amount">₹299 / kg</div>
+            <p class="muted">Hand-finish, delicate care & express delivery.</p>
+            <div style="margin-top:12px"><button class="cta" onclick="openBooking('Luxury')">Choose</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="grid">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <h2 style="margin:0;font-family:'Playfair Display'">Gallery</h2>
+            <p class="muted">A peek at our care, presentation and pickup service.</p>
+          </div>
+          <div style="align-self:center" class="muted">High-res photos</div>
+        </div>
+
+        <div class="grid gallery">
+          <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=60" alt="Neatly folded shirts">
+          <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=800&q=60" alt="Dry cleaning rack">
+          <img src="https://images.unsplash.com/photo-1600180758890-9f12b1f4a9b8?auto=format&fit=crop&w=800&q=60" alt="Delivery bag">
+          <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=60" alt="Luxury finishing">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="grid">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <h2 style="margin:0;font-family:'Playfair Display'">Contact & Booking</h2>
+            <p class="muted">Schedule a pickup, ask a question, or request a custom plan.</p>
+          </div>
+          <div style="align-self:center"><a href="https://wa.me/911234567890?text=Hi%20Fresh%20Tide%20Laundry%20I%27d%20like%20to%20book" target="_blank" class="pill" rel="noreferrer">Chat on WhatsApp</a></div>
+        </div>
+
+        <div class="contact-wrap">
+          <div>
+            <form id="contactForm" onsubmit="return handleContact(event)">
+              <input type="text" id="name" placeholder="Full name" required />
+              <input type="tel" id="phone" placeholder="Phone (e.g. +91 12345 67890)" required />
+              <select id="service">
+                <option>Wash & Fold</option>
+                <option>Premium Dry Clean</option>
+                <option>Shoe & Leather Care</option>
+                <option>Carpets & Rugs</option>
+              </select>
+              <textarea id="notes" rows="4" placeholder="Pickup address & notes" required></textarea>
+              <div style="display:flex;gap:10px;align-items:center">
+                <button class="cta" type="submit">Request Pickup</button>
+                <div class="muted">Or call <a href="tel:+911234567890">+91 12345 67890</a></div>
+              </div>
+            </form>
+          </div>
+
+          <aside class="card" style="height:100%">
+            <h3 style="margin-top:0">Why choose us</h3>
+            <ul class="muted">
+              <li>Eco-friendly detergents & low-energy machines</li>
+              <li>Free pickup & express delivery options</li>
+              <li>Quality checks & garment protection</li>
+            </ul>
+            <div style="margin-top:12px"><strong>Location:</strong><div class="muted">Your City, India</div></div>
+            <div style="margin-top:14px"><strong>Hours:</strong><div class="muted">Mon - Sat: 8:00 — 20:00</div></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="muted">© Fresh Tide Laundry — All rights reserved</div>
+    </footer>
+  </main>
+
+  <!-- Booking modal -->
+  <div id="modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-card">
+      <h3 id="modalTitle">Schedule Pickup</h3>
+      <form id="bookingForm" onsubmit="return submitBooking(event)">
+        <input type="text" id="bk_name" placeholder="Full name" required />
+        <input type="tel" id="bk_phone" placeholder="Phone" required />
+        <select id="bk_plan">
+          <option>Basic</option>
+          <option>Premium</option>
+          <option>Luxury</option>
+        </select>
+        <textarea id="bk_address" rows="3" placeholder="Pickup address" required></textarea>
+        <div style="display:flex;gap:8px;margin-top:12px;justify-content:flex-end">
+          <button type="button" onclick="closeModal()" style="padding:10px 12px;border-radius:8px;border:1px solid rgba(11,18,32,0.06)">Cancel</button>
+          <button class="cta" type="submit">Confirm Pickup</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // small UI interactions
+    const modal = document.getElementById('modal');
+    function openModal(){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); }
+    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
+    document.getElementById('bookNow').addEventListener('click',openModal);
+    document.getElementById('heroBook').addEventListener('click',openModal);
+    document.getElementById('customQuote').addEventListener('click',()=>openModal());
+
+    function openBooking(plan){ openModal(); document.getElementById('bk_plan').value = plan; document.getElementById('modalTitle').innerText = 'Schedule Pickup — '+plan }
+
+    function submitBooking(e){
+      e.preventDefault();
+      const name = document.getElementById('bk_name').value.trim();
+      const phone = document.getElementById('bk_phone').value.trim();
+      const plan = document.getElementById('bk_plan').value;
+      const addr = document.getElementById('bk_address').value.trim();
+      if(!name||!phone||!addr){alert('Please fill all fields');return}
+      // Simulate sending booking — replace with API call
+      alert('Thanks, '+name+"! Your "+plan+" pickup request has been received. We'll call " + phone + ' to confirm.');
+      closeModal();
+      document.getElementById('bookingForm').reset();
+    }
+
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const notes = document.getElementById('notes').value.trim();
+      if(!name||!phone||!notes){alert('Please fill all fields');return}
+      // TODO: replace with real submission
+      const msg = encodeURIComponent(`Hi Fresh Tide, I'm ${name}. Service: ${service}. Address: ${notes}. Phone: ${phone}`);
+      window.open('https://wa.me/911234567890?text='+msg,'_blank');
+      return false;
+    }
+
+    // Close modal on outside click
+    modal.addEventListener('click', (ev)=>{ if(ev.target === modal) closeModal() });
+
+    // small accessibility: close modal on Escape
+    document.addEventListener('keydown', (ev)=>{ if(ev.key === 'Escape') closeModal() });
+  </script>
+</body>
+</html>
